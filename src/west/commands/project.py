@@ -728,6 +728,7 @@ def _fetch(project):
         _git(project, fetch_cmd + ' -f --tags -- {url} {revision}')
         _git(project,
              'update-ref ' + QUAL_MANIFEST_REV + ' FETCH_HEAD^{{commit}}')
+    _git(project, 'lfs fetch {remote_name} FETCH_HEAD^{{commit}}')
 
     if not _head_ok(project):
         # If nothing it checked out (which would usually only happen just after
